@@ -1,0 +1,439 @@
+body[dir="rtl"] {
+    direction: rtl;
+    text-align: right;
+    width: 100%;
+}
+body[dir="rtl"] *{
+    direction: rtl;
+}
+
+.iti {
+    width: 100%;
+    /* Make the input full-width */
+    margin-top: 8px;
+}
+
+.iti__selected-flag {
+    border-radius: 50%;
+}
+
+.horizontal-heading {
+    font-size: 40px;
+}
+
+
+.form-div {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.course-container {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+}
+
+
+.smalls-div {
+    height: auto;
+    margin-top: -25px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.course-card {
+    overflow: hidden;
+    border: 1px solid #d4d2d2;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    padding: 5px;
+}
+
+.check-card {
+    display: none;
+}
+
+.course-card img {
+    border-radius: 4px 4px 0 0;
+    /* Top rounded corners only */
+    object-fit: cover;
+    width: 100%;
+    height: 220px;
+}
+
+.course-card .card-body {
+    border-radius: 0;
+    padding: 0;
+    /* Bottom rounded corners only */
+}
+
+.course-card.checked {
+    border: 1px solid #1E848C;
+    /* box-shadow: 0 0 15px rgba(0, 123, 255, 0.7); */
+    box-shadow: 0 0 2px rgb(30, 132, 140,0.5);
+    transform: scale(1.02);
+    background-color: rgba(0, 123, 255, 0.1);
+    position: relative;
+
+}
+
+.course-card.checked .check-card {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25px;
+    height: 25px;
+    margin-top: 1rem;
+}
+
+.course-card.checked .card-body {
+    background-color: rgba(0, 0, 0, 0.05);
+    /* Slightly darker card body */
+    color: #333;
+    /* transition: background-color 0.3s, color 0.3s; */
+}
+.course-card.checked:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 123, 255, 0.05);
+
+    z-index: 0;
+    pointer-events: none;
+    /* Ensure interactivity isn't blocked */
+}
+
+.main-course-card {
+    width: 97%;
+}
+
+.horizontal-img-container {
+    width: 100%;
+    height: 12.5rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.horizontal-img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.logo {
+    width: auto;
+    max-width: 70%;
+    /*height: 100%;*/
+    max-height: 40%;
+    object-fit: scale-down;
+}
+
+@media (max-width: 575px) and (min-width: 400px) {
+    .col-sm-6 {
+        flex: 0 0 auto;
+        width: 50%;
+    }
+
+
+}
+
+@media (max-width: 576px) {
+    .header-text{
+        font-size: 0.8rem;
+        text-align: center;
+    }
+    .horizontal-img-container {
+        height: 6.5rem;
+    }
+
+    .course-card.checked .check-card {
+        width: 16px;
+        height: 16px;
+    }
+
+    .course-card.checked .check-card i {
+        font-size: 10px;
+    }
+
+    .block {
+        padding: 1rem;
+    }
+
+    .form-label {
+        font-size: 1rem;
+    }
+
+    .btn {
+        font-size: 1rem;
+    }
+
+    .btn.btn-info{
+        background-color: #1E848C !important;
+    }
+    .horizontal-scroll {
+        display: flex;
+        margin-top: -10px;
+        flex-wrap: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: -3rem;
+        /* overflow-x: hidden; */
+    }
+
+    /*
+     .horizontal-scroll::-webkit-scrollbar {
+        display: none;
+    } */
+    .course-card {
+        flex: 0 0 auto;
+        margin-bottom: 0%;
+    }
+
+    .course-heading {
+        font-size: 1.5rem;
+    }
+
+
+    .course-card {
+        /*width: 35%;*/
+        /*height: 40%;*/
+        display: flex;
+        /*margin-top: -10px;*/
+        /*margin-left: -20px;*/
+        margin: 10px 0px;
+
+    }
+
+    .course-card img {
+        height: 100px;
+    }
+
+    .small-hours {
+        font-size: 7px;
+        margin-top: -20px;
+        margin-left: 10px;
+    }
+
+    .small-lecture {
+        font-size: 7px;
+        margin-left: -5px;
+    }
+
+    .small-instructor {
+        font-size: 7px;
+        padding: 0;
+    }
+
+    .small-price {
+        font-size: 7px;
+        padding: 0%;
+    }
+
+    .card-title {
+        font-size: 10px;
+        text-align: left;
+    }
+
+    .sm-smalls {
+        justify-content: left;
+        float: left;
+
+    }
+
+    .horizontal-heading {
+        font-size: 1rem;
+        margin-top: -10px
+    }
+
+    .select-course {
+        font-size: 12px;
+        margin-left: -17px;
+        /* margin-bottom: ; */
+    }
+
+    .card-img-top {
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .small-div {
+        margin-top: -18px;
+        /* margin */
+    }
+
+    .form-div {
+        padding-top: 10px;
+        padding-bottom: 0px;
+    }
+
+    .course-container {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    .course-card img {
+        object-fit: cover;
+    }
+
+    .smalls-div {
+        margin-left: -5px;
+        margin-top: -15px;
+    }
+
+    .course-card.checked .check-card .check-right {
+        text-align: center;
+    }
+
+}
+
+@media (max-width: 744px) and (min-width: 577px) {
+    .header-text{
+        font-size: 14px;
+        text-align: center;
+    }
+    .horizontal-img-container {
+        height: 9.375rem;
+    }
+
+    .course-card.checked .check-card {
+
+        width: 20px;
+        height: 20px;
+    }
+
+    .course-card.checked .check-card i {
+        font-size: 14px;
+    }
+
+    .form-label {
+        font-size: 1rem;
+    }
+
+    .btn {
+        font-size: 1.1rem;
+    }
+
+
+    /*
+     .horizontal-scroll::-webkit-scrollbar {
+        display: none;
+    } */
+    .course-card {
+        flex: 0 0 auto;
+        margin-bottom: 0%;
+    }
+
+    .course-heading {
+        font-size: 1.8rem;
+    }
+
+
+    .course-card {
+        /*width: 35%;*/
+        /*height: 40%;*/
+        display: flex;
+        /*margin-top: -10px;*/
+        /*margin-left: -20px;*/
+        margin: 10px 0px;
+
+    }
+
+    .course-card img {
+        height: 200px;
+    }
+
+    .small-hours {
+        font-size: 0.7rem;
+        margin-top: -20px;
+        margin-left: 10px;
+    }
+
+    .small-lecture {
+        font-size: 0.7rem;
+        margin-left: -5px;
+    }
+
+    .small-instructor {
+        font-size: 0.8rem;
+        padding: 0;
+    }
+
+    .small-price {
+        font-size: 0.8rem;
+        padding: 0%;
+    }
+
+    .card-title {
+        font-size: 0.8rem;
+        text-align: left;
+    }
+
+    .sm-smalls {
+        justify-content: left;
+        float: left;
+
+    }
+
+    .horizontal-heading {
+        font-size: 1.5rem;
+        margin-top: -10px
+    }
+
+    .select-course {
+        font-size: 1.2rem;
+        /*margin-left: -17px;*/
+        /* margin-bottom: ; */
+    }
+
+    .card-img-top {
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .small-div {
+        margin-top: -18px;
+        /* margin */
+    }
+
+    .form-div {
+        padding-top: 10px;
+        padding-bottom: 0px;
+    }
+
+    .course-container {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    .course-card img {
+
+        object-fit: cover;
+    }
+
+    .smalls-div {
+        margin-left: -5px;
+        margin-top: -15px;
+    }
+
+    .course-card.checked .check-card .check-right {
+        text-align: center;
+    }
+
+
+}
+
+.btn {
+    font-size: 1.3rem;
+}
+
+.card-title {
+    font-size: 1rem;
+    text-align: left;
+}

@@ -1,0 +1,34 @@
+[1mdiff --git a/app/Http/Controllers/Admin/CourseRegistrationController.php b/app/Http/Controllers/Admin/CourseRegistrationController.php[m
+[1mindex 1617c00..57f7864 100644[m
+[1m--- a/app/Http/Controllers/Admin/CourseRegistrationController.php[m
+[1m+++ b/app/Http/Controllers/Admin/CourseRegistrationController.php[m
+[36m@@ -32,14 +32,9 @@[m [mpublic function loadCourses(Request $request)[m
+         return response()->json($courses);[m
+     }[m
+ [m
+[31m-    public function register_to_course(Request $request, $id)[m
+[32m+[m[32m    public function register_to_course(Request $request, $slug)[m
+     {[m
+[31m-        try {[m
+[31m-            $course = RegistrationFormCourse::find(decrypt($id));[m
+[31m-        } catch (\Exception $e) {[m
+[31m-[m
+[31m-        }[m
+[31m-[m
+[32m+[m[32m        $course = RegistrationFormCourse::where('slug', $slug)->first();[m
+         return view('frontend.course_registration', compact('course'));[m
+     }[m
+ }[m
+[1mdiff --git a/resources/views/admin/course_registration/courses/index.blade.php b/resources/views/admin/course_registration/courses/index.blade.php[m
+[1mindex f81dba1..48b8213 100644[m
+[1m--- a/resources/views/admin/course_registration/courses/index.blade.php[m
+[1m+++ b/resources/views/admin/course_registration/courses/index.blade.php[m
+[36m@@ -68,7 +68,7 @@[m
+                                         @method('DELETE')[m
+                                         <a href="{{ route('admin.registration-form.courses.edit', $Course->id) }}"[m
+                                            class="btn btn-primary"><i class="fa fa-pencil"></i></a>[m
+[31m-                                        <a onclick="copyToCliport('{{ route('register_to_course',encrypt($Course->id)) }}')"[m
+[32m+[m[32m                                        <a onclick="copyToCliport('{{ route('register_to_course',$Course->slug) }}')"[m
+                                            class="btn btn-info"><i class="fa fa-link"></i></a>[m
+                                         <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i>[m
+                                         </button>[m
