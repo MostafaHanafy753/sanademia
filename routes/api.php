@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\CityController;
+use App\Http\Controllers\Api\PaymentTypeController;
 use App\Http\Controllers\Api\ProvinceController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
@@ -14,14 +15,10 @@ Route::controller(AuthController::class)
     ->middleware(\App\Http\Middleware\LanguageMiddleware::class)
     ->group(function () {
         Route::post('register', 'register');
-
         Route::post('phone-exists', 'phone_exists');
-
         Route::post('register-first-step', 'register_first_step');
         Route::post('register-second-step', 'register_second_step');
-
         Route::post('login', 'login');
-
         Route::post('resend-code', 'resend_code');
         Route::post('verify-otp', 'verify_otp');
     });
@@ -68,7 +65,7 @@ Route::middleware([TrackGuestMiddleware::class, \App\Http\Middleware\CalculateVi
         Route::post('exam_result', [ExamController::class, 'exam_result']);
 
 
-        Route::post('payments', [\App\Http\Controllers\Api\PaymentController::class, 'store']);
+        Route::post('payments', [PaymentTypeController::class, 'store']);
     });
 });
 Route::fallback(function () {

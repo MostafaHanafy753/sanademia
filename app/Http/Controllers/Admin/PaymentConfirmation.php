@@ -9,6 +9,6 @@ class PaymentConfirmation extends Controller
 {
     public function index()
     {
-        return view('admin.payment_confirmations.index');
+        return view('admin.payment_confirmations_confirmed.index');
     }
 }

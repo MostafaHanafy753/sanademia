@@ -10,7 +10,7 @@ class PaymentTypeController extends Controller
 {
     public function index()
     {
-        $paymentTypes = PaymentType::all();
+        $paymentTypes = PaymentType::with('steps')->get();
         return $this->apiResponse($paymentTypes, 'success', 200);
     }
 }

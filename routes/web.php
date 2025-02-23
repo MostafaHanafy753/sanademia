@@ -9,6 +9,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AuthController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
+use App\Http\Controllers\testController;
+
+Route::get('teacher/statements',   [testController::class,'statements'])->name('teacher.statements');
+Route::get('user/statements',   [testController::class,'userstatements'])->name('user.statements');
+Route::get('payments',   [testController::class,'payment'])->name('payments');
+
 Route::group([
     'prefix' => LaravelLocalization::setLocale(),
     'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', TrackGuestMiddleware::class, \App\Http\Middleware\CalculateVisits::class]

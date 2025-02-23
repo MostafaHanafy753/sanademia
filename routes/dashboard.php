@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\Admin\CourseContentController;
 use App\Http\Controllers\Admin\ExamController;
 use App\Http\Controllers\Admin\BannerController;
+use App\Http\Controllers\Admin\PaymentTypeController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\RequestHardCopyController;
 
@@ -64,7 +65,12 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('user', UserController::class);
         Route::resource('request_hard_copy', RequestHardCopyController::class);
 
-
+        Route::post('payment-types', [PaymentTypeController::class, "store"])->name("payment-types.store");
+        Route::get('payment-types', [PaymentTypeController::class, "index"])->name("payment-types.index");
+        Route::post('payment-types/update/{paymentType_id}', [PaymentTypeController::class, "update"])->name("payment-types.update");
+// routes/web.php
+Route::get('/payment-types/{paymentType}/edit', [PaymentTypeController::class, 'edit'])->name('admin.payment-types.edit');
+Route::delete('/payment-types/{id}/delete', [PaymentTypeController::class, 'destroy'])->name('admin.payment-types.destroy');
 
         Route::resource('exam', ExamController::class);
         Route::get('question_create/{id}', [ExamController::class, "question_create"])->name("question.create");

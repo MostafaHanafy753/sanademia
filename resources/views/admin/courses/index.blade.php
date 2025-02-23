@@ -19,8 +19,7 @@
             </tr>
             </thead>
             <tbody>
-            <!-- Populated via AJAX -->
-            </tbody>
+             </tbody>
         </table>
 
 
